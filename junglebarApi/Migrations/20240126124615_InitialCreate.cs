@@ -16,17 +16,22 @@ namespace junglebarApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", nullable: false), // Set a specific length
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.UniqueConstraint("UQ_Email", x => x.Email);
                 });
-        }
 
+            migrationBuilder.CreateIndex(
+                name: "UQ_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
+        }
+        
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
