@@ -35,11 +35,59 @@ public class UserController : ControllerBase
 
         return Ok(user);
     }
+    
+    [HttpGet("{id}")]
+    public ActionResult<User> GetUserById(int id)
+    {
+        var user = _userService.GetUserById(id);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(user);
+    }
 
     [HttpPost]
     public ActionResult AddUser([FromBody] User user)
     {
         _userService.AddUser(user);
+        return Ok();
+    }
+    
+    [HttpDelete("{id}")]
+    public ActionResult DeleteUserById(int id)
+    {
+        var user = _userService.GetUserById(id);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        _userService.DeleteUserById(id);
+        return Ok();
+    }
+
+    [HttpDelete]
+    public ActionResult DeleteAllUsers()
+    {
+        _userService.DeleteAllUsers();
+        return Ok();
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult UpdateUserById(int id, [FromBody] User updatedUser)
+    {
+        var existingUser = _userService.GetUserById(id);
+
+        if (existingUser == null)
+        {
+            return NotFound();
+        }
+
+        _userService.UpdateUserById(id, updatedUser);
         return Ok();
     }
 }

@@ -27,4 +27,24 @@ public class UserService
     {
         _userRepository.AddUser(user);
     }
+    
+    public void DeleteUserById(int id)
+    {
+        _userRepository.DeleteUserById(id);
+    }
+
+    public void DeleteAllUsers()
+    {
+        _userRepository.DeleteAllUsers();
+    }
+
+    public void UpdateUserById(int id, User updatedUser)
+    {
+        _userRepository.UpdateUserById(id, updatedUser);
+    }
+    
+    public User GetUserById(int id)
+    {
+        return _userRepository.GetUserById(id);
+    }
 }

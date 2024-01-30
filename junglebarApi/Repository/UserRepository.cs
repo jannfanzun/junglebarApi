@@ -29,4 +29,39 @@ public class UserRepository
         _context.Users.Add(user);
         _context.SaveChanges();
     }
+    
+    public void DeleteUserById(int id)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user != null)
+        {
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
+    }
+
+    public void DeleteAllUsers()
+    {
+        _context.Users.RemoveRange(_context.Users);
+        _context.SaveChanges();
+    }
+
+    public void UpdateUserById(int id, User updatedUser)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user != null)
+        {
+            user.Email = updatedUser.Email;
+            user.Password = updatedUser.Password;
+
+            _context.SaveChanges();
+        }
+    }
+    
+    public User GetUserById(int id)
+    {
+        return _context.Users.Find(id);
+    }
 }
