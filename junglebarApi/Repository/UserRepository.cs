@@ -55,6 +55,7 @@ public class UserRepository
         {
             user.Email = updatedUser.Email;
             user.Password = updatedUser.Password;
+            user.Name = updatedUser.Name;
 
             _context.SaveChanges();
         }
