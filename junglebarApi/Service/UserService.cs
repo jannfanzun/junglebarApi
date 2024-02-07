@@ -20,11 +20,25 @@ public class UserService
 
     public User GetUserByEmailAndPassword(string email, string password)
     {
-        return _userRepository.GetUserByEmailAndPassword(email, password);
+        User user = _userRepository.GetUserByEmailAndPassword(email, password);
+    
+        if (user != null)
+        {
+            if (BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                return user;
+            }
+        }
+    
+        return null;
     }
+
     
     public void AddUser(User user)
     {
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        user.Password = hashedPassword;
+    
         _userRepository.AddUser(user);
     }
     

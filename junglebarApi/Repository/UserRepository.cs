@@ -21,8 +21,19 @@ public class UserRepository
     
     public User GetUserByEmailAndPassword(string email, string password)
     {
-        return _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+        User user = _context.Users.FirstOrDefault(u => u.Email == email);
+
+        if (user != null)
+        {
+            if (BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                return user;
+            }
+        }
+
+        return null;
     }
+
 
     public void AddUser(User user)
     {

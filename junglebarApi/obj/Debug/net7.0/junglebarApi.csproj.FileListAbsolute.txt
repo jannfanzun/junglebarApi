@@ -163,3 +163,9 @@ C:\Users\janna\Dokumente\1_0_Jann\1_0_Projekte\1_6_JungleBar\m426-api\junglebarA
 C:\Users\janna\Dokumente\1_0_Jann\1_0_Projekte\1_6_JungleBar\m426-api\junglebarApi\junglebarApi\obj\Debug\net7.0\junglebarApi.pdb
 C:\Users\janna\Dokumente\1_0_Jann\1_0_Projekte\1_6_JungleBar\m426-api\junglebarApi\junglebarApi\obj\Debug\net7.0\junglebarApi.genruntimeconfig.cache
 C:\Users\janna\Dokumente\1_0_Jann\1_0_Projekte\1_6_JungleBar\m426-api\junglebarApi\junglebarApi\obj\Debug\net7.0\ref\junglebarApi.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\Castle.Core.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\Moq.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\nunit.framework.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\nunit.framework.legacy.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\jfanzun\Documents\2_Lehrjahr\1_0_TBZ\m426\junglebarApi\junglebarApi\bin\Debug\net7.0\BCrypt.Net-Next.dll
