@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("junglebarApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cf06ece3e2204477068862e04abad870ef1dd03")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+134304647abadb8e154f9992462a5d911521e6bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("junglebarApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("junglebarApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
