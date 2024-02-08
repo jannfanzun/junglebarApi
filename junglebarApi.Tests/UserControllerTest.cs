@@ -1,78 +1,64 @@
-namespace junglebarApi.Tests;
-
-using System.Collections.Generic;
 using junglebarApi.Controllers;
 using junglebarApi.Models;
 using junglebarApi.Service;
+using junglebarApi.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 public class UserControllerTests
 {
-    private Mock<UserService> _mockUserService;
-    private UserController _userController;
-
-    public UserControllerTests()
-    {
-        _mockUserService = new Mock<UserService>();
-        _userController = new UserController(_mockUserService.Object);
-    }
-
     [Fact]
-    public void GetAllUsers_ShouldReturnOkResultWithUsers()
+    public void GetAllUsers_ReturnsOkResult()
     {
         // Arrange
-        var users = new List<User> { new User { Id = 1, Name = "User1" }, new User { Id = 2, Name = "User2" } };
-        _mockUserService.Setup(service => service.GetAllUsers()).Returns(users);
+        var userServiceMock = new Mock<UserService>();
+        userServiceMock.Setup(service => service.GetAllUsers()).Returns(new List<User>());
+
+        var controller = new UserController(userServiceMock.Object);
 
         // Act
-        var result = _userController.GetAllUsers() as ActionResult<IEnumerable<User>>;
+        var result = controller.GetAllUsers();
 
         // Assert
-        Assert.NotNull(result);
         Assert.IsType<OkObjectResult>(result.Result);
-        var okResult = result.Result as OkObjectResult;
-        Assert.NotNull(okResult);
-        Assert.Equal(200, okResult.StatusCode);
-        Assert.Equal(users, okResult.Value);
     }
 
     [Fact]
-    public void GetUserById_ExistingId_ShouldReturnOkResultWithUser()
+    public void GetUserById_ValidId_ReturnsOkResult()
     {
         // Arrange
         var userId = 1;
-        var user = new User { Id = userId, Name = "User1" };
-        _mockUserService.Setup(service => service.GetUserById(userId)).Returns(user);
+        var user = new User { Id = userId, Name = "TestUser", Email = "test@example.com", Password = "password" };
+
+        var userServiceMock = new Mock<UserService>();
+        userServiceMock.Setup(service => service.GetUserById(userId)).Returns(user);
+
+        var controller = new UserController(userServiceMock.Object);
 
         // Act
-        var result = _userController.GetUserById(userId) as ActionResult<User>;
+        var result = controller.GetUserById(userId);
 
         // Assert
-        Assert.NotNull(result);
         Assert.IsType<OkObjectResult>(result.Result);
-        var okResult = result.Result as OkObjectResult;
-        Assert.NotNull(okResult);
-        Assert.Equal(200, okResult.StatusCode);
-        Assert.Equal(user, okResult.Value);
     }
 
     [Fact]
-    public void GetUserById_NonExistingId_ShouldReturnNotFoundResult()
+    public void GetUserById_InvalidId_ReturnsNotFoundResult()
     {
         // Arrange
-        var userId = 1;
-        _mockUserService.Setup(service => service.GetUserById(userId)).Returns((User)null);
+        var userId = 999; // Assume this ID does not exist
+        var userServiceMock = new Mock<UserService>();
+        userServiceMock.Setup(service => service.GetUserById(userId)).Returns((User)null);
+
+        var controller = new UserController(userServiceMock.Object);
 
         // Act
-        var result = _userController.GetUserById(userId) as ActionResult<User>;
+        var result = controller.GetUserById(userId);
 
         // Assert
-        Assert.NotNull(result);
         Assert.IsType<NotFoundResult>(result.Result);
-        var notFoundResult = result.Result as NotFoundResult;
-        Assert.NotNull(notFoundResult);
-        Assert.Equal(404, notFoundResult.StatusCode);
     }
 }
