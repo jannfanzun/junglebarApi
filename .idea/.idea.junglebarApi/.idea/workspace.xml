@@ -122,6 +122,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="3c7199b4-a361-4d3e-8cfb-d2d6b5a3bc94" name="Changes" comment="" />
       <created>1706609957332</created>
       <option name="number" value="Default" />
@@ -131,14 +132,25 @@
       <workItem from="1706616676643" duration="1026000" />
       <workItem from="1706873216685" duration="1652000" />
       <workItem from="1707317208230" duration="973000" />
+=======
+      <changelist id="3f1228f7-f873-48aa-9310-52cf3ae50835" name="Changes" comment="" />
+      <created>1706770184671</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706770184671</updated>
+      <workItem from="1706770187290" duration="970000" />
+>>>>>>> 3877fbe87593d18151bb00c2a411092bc0d2c88e
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
+=======
+>>>>>>> 3877fbe87593d18151bb00c2a411092bc0d2c88e
 </project>
